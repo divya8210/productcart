@@ -1,6 +1,6 @@
 <template>
-	
-	<main class="wrapper">
+  
+  <main class="wrapper">
         <h1>Products</h1>
 
         <div class="card-container">
@@ -233,4 +233,22 @@
           </div>
         </div>
       </main>
+      <ProductCard 
+        v-for="(product,index) in inventory.slice(0,3)" 
+        :key="product.id" 
+        class="card"
+        :index="index"
+        :product="product"
+        :addToCart="addToCart"
+      />
 </template>
+<script>
+import ProductCard from '@/components/ProductCard'
+export default {
+  name: 'HomeView',
+  props:['inventory','addToCart'],
+  components:{
+   ProductCard
+  }
+}
+</script>
